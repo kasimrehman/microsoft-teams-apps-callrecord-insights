@@ -77,8 +77,18 @@ namespace CallRecordInsights.Extensions
         {
             return services.AddSingleton(serviceProvider =>
             {
+                var loggerFactory = serviceProvider.GetRequiredService<ILoggerFactory>();
+                var logger = loggerFactory.CreateLogger("CallRecordInsights.QueueContext");
                 var connectionString = serviceProvider.GetRequiredService<IConfiguration>()
                     .GetValue<string>("CallRecordsQueueConnection");
+
+                if (string.IsNullOrEmpty(connectionString))
+                {
+                    logger.LogError("CallRecordsQueueConnection is null or empty");
+                    throw new InvalidOperationException("CallRecordsQueueConnection configuration is missing or empty");
+                }
+
+                logger.LogInformation("Retrieved CallRecordsQueueConnection: {ConnectionString}", connectionString);
                 return new Azure.Storage.Queues.QueueServiceClient(connectionString);
             });
         }
