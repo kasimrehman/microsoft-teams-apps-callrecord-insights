@@ -29,7 +29,7 @@ var clusterConfigurations = {
   DevTest: {
     cluster: {
       sku: {
-        name: isGovCloud ? 'Dev(No SLA)_Standard_D11_v2' : 'Dev(No SLA)_Standard_E2a_v4'
+        name:  'Dev(No SLA)_Standard_D11_v2' 
         tier: 'Basic'
         capacity: 1
       }
@@ -47,7 +47,7 @@ var clusterConfigurations = {
   Production: {
     cluster: {
       sku: {
-        name: isGovCloud ? 'Standard_D11_v2' : 'Standard_E2ads_v5'
+        name: 'Standard_D11_v2' 
         tier: 'Standard'
         capacity: 2
       }
@@ -64,7 +64,7 @@ var clusterConfigurations = {
   RestrictedProduction: {
     cluster: {
       sku: {
-        name: isGovCloud ? 'Standard_D11_v2' : 'Standard_E2ads_v5'
+        name:  'Standard_D11_v2' 
         tier: 'Standard'
         capacity: 2
       }
