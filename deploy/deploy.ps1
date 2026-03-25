@@ -20,7 +20,7 @@ param(
     $SubscriptionId,
 
     [ValidateSet('DevTest','Production','RestrictedProduction')]
-    $DeploymentSize = 'Production',
+    $DeploymentSize = 'DevTest',
 
     [Parameter(HelpMessage = 'The Azure region that''s right for you. Not every resource is available in every region.')]
     [ValidateSet('australiaeast', 'brazilsouth', 'canadacentral', 'centralindia', 'centralus', 'eastasia', 'eastus', 'eastus2',
@@ -29,12 +29,12 @@ param(
         'uaenorth', 'uksouth', 'westcentralus', 'westeurope', 'westus', 'westus2', 'westus3',
         'usgovvirginia', 'usgovarizona', 'usgovtexas', 'usdodcentral')]
     [string]
-    $Location = 'westus',
+    $Location = 'canadacentral',
 
     [Parameter(HelpMessage = 'The URL to the git repository to deploy.')]
     [AllowEmptyString()]
     [string]
-    $GitRepoUrl = 'https://github.com/OfficeDev/microsoft-teams-apps-callrecord-insights.git',
+    $GitRepoUrl = 'https://github.com/kasimrehman/microsoft-teams-apps-callrecord-insights.git',
 
     [Parameter(HelpMessage = 'The branch of the git repository to deploy.')]
     [AllowEmptyString()]
